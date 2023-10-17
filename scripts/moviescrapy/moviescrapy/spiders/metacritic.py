@@ -39,18 +39,18 @@ class MetacriticSpider(scrapy.Spider):
         self.scroll_until_loaded()
 
         site_reviews = self.driver.find_elements(By.CSS_SELECTOR, '* > div[class*="c-siteReview_main"]')
-        print("Found", len(site_reviews), "reviews")
+        print("Found", len(site_reviews), "reviews for movie", movie)
         for site_review in site_reviews:
             # user = UserItem()
             # user["name"] = username
             # yield user
             review = ReviewItem()
             # get text from span inside div with class c-siteReview_quote
-            # TODO handle 'read more' button
             
             review["movie"] = movie
             review["user"] = site_review.find_element(By.CSS_SELECTOR, '* > a[class*="c-siteReviewHeader_username"]').text
             review["score"] = site_review.find_element(By.CSS_SELECTOR, '* > div[class*="c-siteReviewScore"]').text
             review["date"] = site_review.find_element(By.CSS_SELECTOR, '* > div[class*="c-siteReviewHeader_reviewDate"]').text
+            # TODO handle 'read more' button
             review["text"] = site_review.find_element(By.CSS_SELECTOR, '* > div[class*="c-siteReview_quote"]').text
             yield review
