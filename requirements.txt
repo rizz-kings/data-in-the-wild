@@ -1,2 +1,2 @@
 tmdbsimple
-ipykernel == 6.25.2
+pandas == 2.*
