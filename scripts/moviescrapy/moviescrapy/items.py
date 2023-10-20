@@ -8,6 +8,8 @@ import scrapy
 
 class UserItem(scrapy.Item):
     name = scrapy.Field()
+    avg_movie_score = scrapy.Field()
+    number_of_movie_reviews = scrapy.Field()
 
 class ReviewItem(scrapy.Item):
     movie = scrapy.Field()
