@@ -18,7 +18,9 @@ class MetacriticSpider(scrapy.Spider):
     start_url = "https://www.metacritic.com"
     user_reviews_name = "user-reviews"
     movies = ["taylor-swift-the-eras-tour","avengers-endgame"]
+    # movies = ["avengers-endgame"]
     # movies = ["taylor-swift-the-eras-tour"]
+    consented = False
 
     def __init__(self):
         self.driver = webdriver.Chrome()
@@ -42,13 +44,15 @@ class MetacriticSpider(scrapy.Spider):
         try:
             self.driver.get(response.url)
 
+            if not self.consented:
+                consent = self.wait.until(EC.presence_of_element_located((By.ID, 'onetrust-accept-btn-handler')))
+                
+                if consent is not None:
+                    consent.click()
+                    self.consented = True
         
             self.scroll_until_loaded()
             
-            consent = self.wait.until(EC.presence_of_element_located((By.ID, 'onetrust-accept-btn-handler')))
-            
-            if consent is not None:
-                consent.click()
 
             site_reviews = self.driver.find_elements(By.CSS_SELECTOR, '* > div[class*="c-siteReview_main"]')
             print("Found", len(site_reviews), "reviews for movie", movie)
@@ -79,7 +83,8 @@ class MetacriticSpider(scrapy.Spider):
                     yield review
 
                 except:
-                    print("Error parsing review")
+                    # in red terminal color
+                    print("\033[91m" + "Error parsing review" + "\033[0m")
 
         except:
             print("Error parsing movie", movie)
