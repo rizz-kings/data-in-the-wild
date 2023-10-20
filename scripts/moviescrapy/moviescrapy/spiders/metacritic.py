@@ -1,3 +1,6 @@
+# RUN IT WITH: scrapy crawl metacritic -o result.json
+# You have to be in the same directory as the scrapy.cfg file
+
 import scrapy
 import re
 from selenium import webdriver
