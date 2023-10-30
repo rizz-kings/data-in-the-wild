@@ -19,7 +19,7 @@ class MetacriticSpider(scrapy.Spider):
     allowed_domains = ["www.metacritic.com"]
     start_url = "https://www.metacritic.com"
     user_reviews_name = "user-reviews"
-    movies = json.load(open("movies.json", "r"))
+    movies = json.load(open("movies2.json", "r"))
     consented = False
     start_urls = ["data:,"]
 
