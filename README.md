@@ -21,6 +21,4 @@ Most Notebooks within this folder should have self-explanatory names. <br>
 The scripts folder contains .py files mainly used in the data collection process. <br>
 
 #### Versions
-All notebooks were tested to run with Python version 3.10.13 and the package versions in requirements.txt. When testing the installation of all requirements.txt files on another device we ran into issues, so we suggest when wanting to run a given notebook installing any missing imports on the go and specifying the package versions found in the requirements.txt file. <br>
-
-Note that due to Selenium funkiness, the relevant Selenium drivers may need to be installed, and Selenium python package pip installed.
+All notebooks were tested to run with Python version 3.10.13 and the package versions in requirements.txt. Keep in mind more "standard" libraries such as pandas are not in the requirements.txt. <br>
