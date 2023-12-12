@@ -16,10 +16,11 @@ Movie metadata is stored in: <br> https://github.com/rizz-kings/data-in-the-wild
 The notebooks folder contains notebooks used in every step of the project. <br> imdb_reviews.ipynb is the main notebook used to gather all reviews from imdb.com. <br>
 <br>
 Most Notebooks within this folder should have self-explanatory names. <br>
-Note that the data scraping notebooks using Selenium the relevant Selenium drivers will need to be installed to run them. <br>
 
 #### Scripts
 The scripts folder contains .py files mainly used in the data collection process. <br>
 
 #### Versions
 All notebooks were tested to run with Python version 3.10.13 and the package versions in requirements.txt. <br>
+
+Note that due to Selenium funkiness, the relevant Selenium drivers may need to be installed, and Selenium python package pip installed.
