@@ -8,4 +8,4 @@ The data used for this project is collected from two types of sources:
 - Movie Review Sites
 - Movie Metadata Databases
 <br>
-All movie reviews across different sites are collected in [data/processed/all_reviews.csv](https://github.com/rizz-kings/data-in-the-wild/blob/main/data/processed/all_reviews.csv)
+All movie reviews across different sites are collected in: https://github.com/rizz-kings/data-in-the-wild/blob/main/data/processed/all_reviews.csv 
